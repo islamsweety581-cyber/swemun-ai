@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Swemun AI</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f5f7fb;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header {
+      background: #ffffff;
+      padding: 18px 20px;
+      border-bottom: 1px solid #ddd;
+      font-size: 24px;
+      font-weight: bold;
+      color: #111827;
+    }
+
+    .chat {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .welcome {
+      text-align: center;
+      margin-top: 25vh;
+    }
+
+    .welcome h1 {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .welcome p {
+      color: #666;
+      font-size: 16px;
+    }
+
+    .input-area {
+      background: white;
+      padding: 12px;
+      border-top: 1px solid #ddd;
+      display: flex;
+      gap: 10px;
+    }
+
+    .input-area input {
+      flex: 1;
+      padding: 14px;
+      border: 1px solid #ccc;
+      border-radius: 25px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .input-area button {
+      width: 52px;
+      height: 52px;
+      border: none;
+      border-radius: 50%;
+      background: #111827;
+      color: white;
+      font-size: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="header">
+    🤖 Swemun AI
+  </div>
+
+  <div class="chat" id="chat">
+    <div class="welcome">
+      <h1>Welcome to Swemun AI</h1>
+      <p>Your personal AI assistant</p>
+    </div>
+  </div>
+
+  <div class="input-area">
+    <input id="message" type="text" placeholder="Message Swemun AI...">
+    <button onclick="sendMessage()">➤</button>
+  </div>
+
+  <script>
+    function sendMessage() {
+      const input = document.getElementById("message");
+      const chat = document.getElementById("chat");
+
+      if (input.value.trim() === "") return;
+
+      const message = document.createElement("p");
+      message.textContent = "You: " + input.value;
+      message.style.marginBottom = "12px";
+
+      chat.appendChild(message);
+      input.value = "";
+    }
+  </script>
+
+</body>
+</html>
